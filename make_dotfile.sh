@@ -29,7 +29,6 @@ link() {
 link vim
 link vimrc
 link zshrc
-link config
 link gitconfig
 link gitignore
 
