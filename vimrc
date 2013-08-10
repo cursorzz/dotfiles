@@ -66,7 +66,7 @@ set autochdir  "自动切换目录
 highlight Folded guibg=grey30 guifg=gold  "折叠
 highlight FoldColumn guibg=grey30 guifg=tan  "折柱
 set cc=81 " 81列处高亮
-set nowrap
+"set nowrap
 set list
 "set listchars=tab:>-,trail:-
 set listchars=tab:>-
@@ -150,6 +150,8 @@ Bundle 'xolox/vim-misc'
 "Bundle 'Conque-Shell'
 "	快速插入内容
 Bundle 'snipMate'
+Bundle 'mattn/zencoding-vim'
+Bundle 'morhetz/gruvbox'
 
 filetype plugin indent on
 "    安装所设置插件
