@@ -1,7 +1,8 @@
 " vimrc by Long Changjin
+"let mapleader = ","
 
-set gfn=Monospace\ 10
 set nocompatible " 关闭兼容模式
+"set gfn=Monospace\ 10
 syntax on " 打开语法高亮
 filetype plugin on " 打开文件类型插件
 filetype indent on " 打开缩进
@@ -10,7 +11,7 @@ set nu " 显示行号
 set showcmd " 显示命令
 set title " 显示标题
 set lz " 当运行宏时，命令未执行完之前，不要重绘屏幕
-set hid " 可以在没有保存得情况下切换buffer
+"set hid " 可以在没有保存得情况下切换buffer
 set incsearch " 增量式搜索，边输入边搜索
 set hlsearch " 高亮搜索
 set viminfo='10,\"100,:20,%,n~/.viminfo
@@ -31,8 +32,7 @@ augroup END
 "set nobackup " 关闭备份
 """"" Command Line
 " Autocomplete features in the status bar
-set wildmenu
-set wildmode=longest,list
+set wildchar=<Tab> wildmenu wildmode=longest,list,full
 set wildignore=*.o,*~,*.pyc,*.swp
 set lazyredraw
 set mat=2
@@ -52,10 +52,62 @@ set background=dark
 let g:solarized_termcolors=256
 color solarized " 颜色主题
 " 文件编码
+set laststatus=2 " 总是显示状态栏
+function! InsertStatuslineColor(mode)
+  if a:mode == 'i'
+    hi statusline guibg=Cray ctermfg=11 guifg=Black ctermbg=0
+  elseif a:mode == 'v'
+    hi statusline guibg=Purple ctermfg=11 guifg=Black ctermbg=0
+  else
+    hi statusline guibg=DarkRed ctermfg=15 guifg=Black ctermbg=0
+  endif
+endfunction
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
+
+" default the statusline to green when entering Vim
+hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
+
+" Formats the statusline
+set statusline+=[%{&ff}] "file format
+set statusline+=%y      "filetype
+set statusline+=\ %F                           " file name
+"set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%r      "read only flag
+
+" Puts in the current git status
+    "if count(g:pathogen_disabled, 'Fugitive') < 1   
+        "set statusline+=%{fugitive#statusline()}
+    "endif
+
+"" Puts in syntastic warnings
+    "if count(g:pathogen_disabled, 'Syntastic') < 1  
+        "set statusline+=%#warningmsg#
+        "set statusline+=%{SyntasticStatuslineFlag()}
+        "set statusline+=%*
+    "endif
+set statusline+=\ %=                        " align left
+set statusline+=Line:%l/%L[%p%%]            " line X of Y [percent of file]
+set statusline+=\ Col:%c                    " current column
+set statusline+=\ Buf:%n                    " Buffer number
+"set statusline+=\ [%b][0x%B]\               " ASCII and byte code under cursor
 set encoding=utf8
 set termencoding=utf-8
 set fileencodings=utf8,gb2312,gb18030,ucs-bom,latin1
-set laststatus=2 " 总是显示状态栏
+"hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
+"set laststatus=2 " 总是显示状态栏
+""set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+""set statusline=%F%m%r%h%w\ 
+"set statusline +=%1*\ %n\ %*            "buffer number
+"set statusline +=%5*%{&ff}%*            "file format
+"set statusline +=%3*%y%*                "file type
+"set statusline +=%4*\ %<%F%*            "full path
+"set statusline +=%2*%m%*                "modified flag
+"set statusline +=%1*%=%5l%*             "current line
+"set statusline +=%2*/%L%*               "total lines
 set cursorline
 "set cursorcolumn
 set autochdir  "自动切换目录
@@ -66,11 +118,14 @@ set autochdir  "自动切换目录
 highlight Folded guibg=grey30 guifg=gold  "折叠
 highlight FoldColumn guibg=grey30 guifg=tan  "折柱
 set cc=81 " 81列处高亮
-"set nowrap
+set wrap
+set linebreak
 set list
+set listchars=tab:▸\ ,trail:▫
 "set listchars=tab:>-,trail:-
-set listchars=tab:>-
+"set listchars=tab:>-
 set backspace=indent,eol,start   "设置backspace删除
+set clipboard=unnamed                                        " yank and paste with the system clipboard
 
 "if has("gui_running")
 	"set lines=40 columns=100
@@ -98,9 +153,11 @@ Bundle 'gmarik/vundle'
 
 "	需要先安装flake8
 Bundle 'vim-flake8'
+Bundle 'pyflakes.vim'
 "	使用vim-syntastic需要flake8
 Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
+"let g:Powerline_stl_path_style = 'short'
 "Bundle 'groenewege/vim-less'
 "Bundle 'lastpos.vim'
 "	注释管理插件
@@ -112,11 +169,12 @@ Bundle 'scrooloose/nerdcommenter'
 "	Python代码折叠，F换发所有折叠，f触发光标所在位置折叠，Shift+e执行当前脚本
 Bundle 'python.vim'
 "	Python拼写检查，:cc定位语法错误
-Bundle 'pyflakes.vim'
 Bundle 'vim-fugitive'
+Bundle 'pangloss/vim-javascript'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 " Edit xml and html easily
-Bundle 'xmledit'
+"Bundle 'xmledit'
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
 autocmd FileType python.django set omnifunc=pythoncomplete#Complete
@@ -137,12 +195,13 @@ Bundle 'genutils'
 "	使用Tab补全Python
 Bundle 'Pydiction'
 "	自动弹出补全窗口
-Bundle 'AutoComplPop'
+"Bundle 'AutoComplPop'
 "Bundle 'taglist.vim'
 "比taglist更好的代码结构浏览
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
 Bundle 'xolox/vim-notes'
+
 Bundle 'xolox/vim-misc'
 :let g:notes_directories = ['~/Documents/Notes']
 "Bundle 'winmanager'
@@ -151,7 +210,9 @@ Bundle 'xolox/vim-misc'
 "	快速插入内容
 Bundle 'snipMate'
 Bundle 'mattn/zencoding-vim'
+  let g:user_zen_leader_key = '<c-y>'
 Bundle 'morhetz/gruvbox'
+
 
 filetype plugin indent on
 "    安装所设置插件
@@ -188,11 +249,11 @@ au FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8
 "nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 "nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-"let mapleader = ","
 noremap <Leader>e :NERDTreeToggle<CR>
 noremap <Leader>t :TagbarToggle<CR>
 
 "AutoComplPop设置
+
 let g:acp_enableAtStartup = 0    "取消运行启用
 "Pydiction设置
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
@@ -216,15 +277,19 @@ nnoremap <Leader>n :lnext<CR>
 nnoremap <Leader>p :lprevious<CR>
 nnoremap <Leader>w :w<CR>
 inoremap <Leader>w <ESC>:w<CR>
+inoremap <C-b> <C-n>
 vnoremap J 6j
 vnoremap K 6k
 nnoremap J 6j
 nnoremap K 6k
-nnoremap H <C-w><Left>
-nnoremap L <C-w><Right>
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
+nnoremap <C-h> <C-w><Left>
+nnoremap <C-l> <C-w><Right>
+nnoremap <C-k> <C-w><Up>
+nnoremap <C-j> <C-w><Down>
+"nnoremap h :bp<CR>
+"nnoremap l :bn<CR>
 inoremap <Leader>( _(<ESC><Right>Ef"a)
+nnoremap <Leader>` viw~<CR>
 
 set showtabline=2  " 0, 1 or 2; when to use a tab pages line
 set tabline=%!MyTabLine()  " custom tab pages line
@@ -276,4 +341,12 @@ map <leader>0 10gt
 " setxkbmap -option ctrl:nocaps
 " To reset
 " setxkbmap -option
-"" when we reload, tell vim to restore the cursor to the saved position
+" when we reload, tell vim to restore the cursor to the saved position
+
+if filereadable(expand('~/.vimrc.bundle'))
+    source ~/.vimrc.bundle
+endif
+
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif

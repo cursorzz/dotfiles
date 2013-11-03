@@ -6,9 +6,12 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="candy" #candy
+# use vi mode
+bindkey -v
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias sudo="sudo "
 alias pacman="sudo apt-get"
@@ -19,7 +22,7 @@ alias ass="~/deepin-system-settings/modules/application_associate/src/"
 alias dss="~/deepin-system-settings/dss/"
 alias tray="~/Project/deepin-system-tray/src/"
 alias ui="~/Project/deepin-ui-private/"
-alias zhuo="~/Project/web/zhuoshu/src"
+alias zhuo="~/Project/web/zhuoshu_new/src"
 alias ddoc="~/Project/Django-1.5.1/django/"
 alias ack="ack-grep"
 
@@ -41,18 +44,18 @@ alias ack="ack-grep"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(github debian rvm)
+plugins=(github debian rvm vi-mode django ruby)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export EDITOR='vim'
+export EDITOR="vim"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 #zstyle ‘:completion:*’ verbose yes
-zstyle ':completion:*:functions' ignored-patterns '_*'
+zstyle ":completion:*:functions" ignored-patterns "_*"
 
 #zstyle ‘:completion:*:descriptions’ format ‘%B%d%b’
 

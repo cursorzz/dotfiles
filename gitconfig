@@ -1,7 +1,9 @@
 [user]
-	name = cursorzz
+	name = cursorzz\n
 	email = zengzhilg@gmail.com
 [color]
 	ui = true
 [push]
 	default = simple
+[alias]
+st = status
