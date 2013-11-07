@@ -1,0 +1,28 @@
+nmap cs :SyntasticCheck<CR>
+nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+""窗口操作
+vnoremap <C-x>c "+y
+nnoremap <C-x>c "+p
+nnoremap <Leader>r :!./% <CR>
+nnoremap t :tabe 
+nnoremap <Leader>/ :vsplit 
+nnoremap <Leader>n :lnext<CR>
+nnoremap <Leader>p :lprevious<CR>
+nnoremap <Leader>w :w<CR>
+inoremap <Leader>w <ESC>:w<CR>
+inoremap <C-b> <C-n>
+vnoremap J 6j
+vnoremap K 6k
+nnoremap J 6j
+nnoremap K 6k
+nnoremap <C-h> <C-w><Left>
+nnoremap <C-l> <C-w><Right>
+nnoremap <C-k> <C-w><Up>
+nnoremap <C-j> <C-w><Down>
+"nnoremap h :bp<CR>
+"nnoremap l :bn<CR>
+inoremap <Leader>( _(<ESC><Right>Ef"a)
+nnoremap <Leader>` viw~<CR>
+
+set showtabline=2  " 0, 1 or 2; when to use a tab pages line
+set tabline=%!MyTabLine()  " custom tab pages line

@@ -44,14 +44,15 @@ alias ack="ack-grep"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(github debian rvm vi-mode django ruby)
+. ~/Project/z/z.sh
+plugins=(github debian rvm django ruby)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export EDITOR="vim"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export GOPATH=$HOME/go
+PATH=$PATH:$HOME/.rvm/bin:$GOPATH/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 #zstyle ‘:completion:*’ verbose yes
