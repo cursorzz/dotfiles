@@ -1,3 +1,5 @@
+noremap <Leader>e :NERDTreeToggle<CR>
+noremap <Leader>t :TagbarToggle<CR>
 nmap cs :SyntasticCheck<CR>
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 ""窗口操作
@@ -25,4 +27,4 @@ inoremap <Leader>( _(<ESC><Right>Ef"a)
 nnoremap <Leader>` viw~<CR>
 
 set showtabline=2  " 0, 1 or 2; when to use a tab pages line
-set tabline=%!MyTabLine()  " custom tab pages line
+"set tabline=%!MyTabLine()  " custom tab pages line

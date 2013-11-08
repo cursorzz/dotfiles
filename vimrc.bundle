@@ -1,0 +1,71 @@
+"	需要先安装flake8
+Bundle 'gmarik/vundle'
+Bundle 'vim-flake8'
+Bundle 'pyflakes.vim'
+Bundle 'christoomey/vim-tmux-navigator'
+"	使用vim-syntastic需要flake8
+Bundle 'scrooloose/syntastic'
+"Bundle 'Lokaltog/vim-powerline'
+"let g:Powerline_stl_path_style = 'short'
+"Bundle 'groenewege/vim-less'
+"Bundle 'lastpos.vim'
+"	注释管理插件
+Bundle 'scrooloose/nerdcommenter'
+"	 python文档查找，使用Pydoc <keyword>，如Pydoc re
+"    PydocSearch <keyword>
+"    当光标在某个词上时按'\pW'
+"Bundle 'fs111/pydoc.vim'
+"	Python代码折叠，F换发所有折叠，f触发光标所在位置折叠，Shift+e执行当前脚本
+Bundle 'python.vim'
+"	Python拼写检查，:cc定位语法错误
+Bundle 'vim-fugitive'
+Bundle 'pangloss/vim-javascript'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'tpope/vim-vividchalk'
+
+" Edit xml and html easily
+"Bundle 'xmledit'
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
+autocmd FileType python.django set omnifunc=pythoncomplete#Complete
+autocmd FileType htmldjango.html set omnifunc=htmlcomplete#CompleteTags
+"	pyton pep8代码风格检查
+"Bundle 'pep8.vim'
+"	自动语法检查，需要pyflakes
+"	默认迅捷 键是cs
+"	g:pcs_hotkey，修改快捷键
+"	g:pcs_check_when_saving，保存时检查
+"Bundle 'python_check_syntax.vim'
+"Bundle 'python_fn.vim'
+"	文件浏览器，NerdTree命令
+Bundle 'The-NERD-tree'
+Bundle 'VimExplorer'
+"Bundle 'lookupfile'
+Bundle 'genutils'
+"	使用Tab补全Python
+Bundle 'Pydiction'
+"	自动弹出补全窗口
+"Bundle 'AutoComplPop'
+"Bundle 'taglist.vim'
+"比taglist更好的代码结构浏览
+Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-surround'
+Bundle 'xolox/vim-notes'
+
+Bundle 'xolox/vim-misc'
+:let g:notes_directories = ['~/Documents/Notes']
+"Bundle 'winmanager'
+"	在vim中运行shell
+"Bundle 'Conque-Shell'
+"	快速插入内容
+Bundle 'snipMate'
+Bundle 'mattn/zencoding-vim'
+  let g:user_zen_leader_key = '<c-y>'
+Bundle 'morhetz/gruvbox'
+
+
+filetype plugin indent on
+"    安装所设置插件
+"    安装：BundleInstall，更新：BundleInstall!，卸载不在列表的插件：BundleClean
+"    au VimEnter * BundleInstall
+"vundle设置 end---------------------------------------------------------------
