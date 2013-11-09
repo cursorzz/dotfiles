@@ -22,6 +22,7 @@ Bundle 'vim-fugitive'
 Bundle 'pangloss/vim-javascript'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'tpope/vim-vividchalk'
+Bundle 'zeis/vim-kolor'
 
 " Edit xml and html easily
 "Bundle 'xmledit'
@@ -62,6 +63,7 @@ Bundle 'snipMate'
 Bundle 'mattn/zencoding-vim'
   let g:user_zen_leader_key = '<c-y>'
 Bundle 'morhetz/gruvbox'
+Bundle 'chriskempson/tomorrow-theme'
 
 
 filetype plugin indent on
@@ -69,3 +71,6 @@ filetype plugin indent on
 "    安装：BundleInstall，更新：BundleInstall!，卸载不在列表的插件：BundleClean
 "    au VimEnter * BundleInstall
 "vundle设置 end---------------------------------------------------------------
+"
+" some colorscheme bundles
+Bundle 'vim-scripts/xoria256.vim'

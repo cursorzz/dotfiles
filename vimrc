@@ -58,7 +58,14 @@ set tabstop=4     " 实际的tab占8格, ex: 读其他文件
 "set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 set autochdir  "自动切换目录
 "set foldlevel=1
-colorscheme molokai
+let g:kolor_italic=1                    " Enable italic. Default: 1
+let g:kolor_bold=1                      " Enable bold. Default: 1
+let g:kolor_underlined=1                " Enable underline for 'Underlined'. Default: 0
+let g:kolor_alternative_matchparen=1    " Gray 'MatchParen' color. Default: 0
+colorscheme kolor
+"let g:loaded_matchparen=1 
+"highlight MatchParen ctermfg=none ctermbg=none cterm=bold
+"highlight MatchParen      guifg=White    guibg=none    gui=bold
 
 " terminal related setting
 set t_Co=256 " this will effect statusline color
