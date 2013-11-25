@@ -21,7 +21,7 @@ set autoindent
 set autoread " 文件变动时自动加载
 set backspace=2 " ?
 "set backupcopy=yes "unix open it by default
-set clipboard=unnamed
+"set clipboard+=unnamed
 
 set directory-=. " swap会被保存在tmp中
 set encoding=utf-8

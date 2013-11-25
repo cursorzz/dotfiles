@@ -1,8 +1,8 @@
 "	需要先安装flake8
-Bundle 'gmarik/vundle'
-Bundle 'vim-flake8'
-Bundle 'pyflakes.vim'
-Bundle 'christoomey/vim-tmux-navigator'
+Bundle   'gmarik/vundle'
+Bundle   'vim-flake8'
+Bundle   'pyflakes.vim'
+Bundle   'christoomey/vim-tmux-navigator'
 "	使用vim-syntastic需要flake8
 Bundle 'scrooloose/syntastic'
 "Bundle 'Lokaltog/vim-powerline'
@@ -18,11 +18,14 @@ Bundle 'scrooloose/nerdcommenter'
 "	Python代码折叠，F换发所有折叠，f触发光标所在位置折叠，Shift+e执行当前脚本
 Bundle 'python.vim'
 "	Python拼写检查，:cc定位语法错误
-Bundle 'vim-fugitive'
-Bundle 'pangloss/vim-javascript'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'zeis/vim-kolor'
+Bundle    'vim-fugitive'
+Bundle    'pangloss/vim-javascript'
+Bundle    'nathanaelkane/vim-indent-guides'
+Bundle    'tpope/vim-vividchalk'
+"Bundle   'zeis/vim-kolor'
+"Bundle    'Yggdroot/indentLine'
+"
+Bundle 'sandeepcr529/Buffet.vim'
 
 " Edit xml and html easily
 "Bundle 'xmledit'
@@ -63,7 +66,7 @@ Bundle 'snipMate'
 Bundle 'mattn/zencoding-vim'
   let g:user_zen_leader_key = '<c-y>'
 Bundle 'morhetz/gruvbox'
-Bundle 'chriskempson/tomorrow-theme'
+"Bundle 'chriskempson/tomorrow-theme'
 
 
 filetype plugin indent on
@@ -74,3 +77,5 @@ filetype plugin indent on
 "
 " some colorscheme bundles
 Bundle 'vim-scripts/xoria256.vim'
+
+Bundle 'godlygeek/tabular'

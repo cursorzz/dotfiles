@@ -25,6 +25,7 @@ alias ui="~/Project/deepin-ui-private/"
 alias zhuo="~/Project/web/zhuoshu_new/src"
 alias ddoc="~/Project/Django-1.5.1/django/"
 alias ack="ack-grep"
+alias web="~/Project/deepin-website/django"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
