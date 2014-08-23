@@ -2,9 +2,11 @@
 Bundle   'gmarik/vundle'
 Bundle   'vim-flake8'
 Bundle   'pyflakes.vim'
-Bundle   'christoomey/vim-tmux-navigator'
+"Bundle   'christoomey/vim-tmux-navigator'
 "	使用vim-syntastic需要flake8
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
+"let g:syntastic_python_checkers = ['pylint']
+
 "Bundle 'Lokaltog/vim-powerline'
 "let g:Powerline_stl_path_style = 'short'
 "Bundle 'groenewege/vim-less'
@@ -18,15 +20,19 @@ Bundle 'scrooloose/nerdcommenter'
 "	Python代码折叠，F换发所有折叠，f触发光标所在位置折叠，Shift+e执行当前脚本
 Bundle 'python.vim'
 "	Python拼写检查，:cc定位语法错误
-Bundle    'vim-fugitive'
+"Bundle    'vim-fugitive'
+Bundle 'tpope/vim-fugitive'
 Bundle    'pangloss/vim-javascript'
 Bundle    'nathanaelkane/vim-indent-guides'
 Bundle    'tpope/vim-vividchalk'
 "Bundle   'zeis/vim-kolor'
 "Bundle    'Yggdroot/indentLine'
+Bundle 'jmcomets/vim-pony'
 "
 Bundle 'sandeepcr529/Buffet.vim'
-
+" 补全ruby的end
+"Bundle 'tpope/vim-endwise'
+Bundle 'vim-ruby/vim-ruby'
 " Edit xml and html easily
 "Bundle 'xmledit'
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
@@ -48,8 +54,11 @@ Bundle 'VimExplorer'
 Bundle 'genutils'
 "	使用Tab补全Python
 Bundle 'Pydiction'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'AutoComplPop'
+"Bundle 'Valloric/YouCompleteMe'
+"
 "	自动弹出补全窗口
-"Bundle 'AutoComplPop'
 "Bundle 'taglist.vim'
 "比taglist更好的代码结构浏览
 Bundle 'majutsushi/tagbar'
@@ -57,14 +66,15 @@ Bundle 'tpope/vim-surround'
 Bundle 'xolox/vim-notes'
 
 Bundle 'xolox/vim-misc'
-:let g:notes_directories = ['~/Documents/Notes']
+:let g:notes_directories = ['/home/ld/Documents/Notes']
 "Bundle 'winmanager'
 "	在vim中运行shell
 "Bundle 'Conque-Shell'
 "	快速插入内容
 Bundle 'snipMate'
-Bundle 'mattn/zencoding-vim'
-  let g:user_zen_leader_key = '<c-y>'
+"Bundle 'mattn/zencoding-vim'
+  "let g:user_zen_leader_key = '<c-y>'
+Bundle 'mattn/emmet-vim'
 Bundle 'morhetz/gruvbox'
 "Bundle 'chriskempson/tomorrow-theme'
 
@@ -79,3 +89,9 @@ filetype plugin indent on
 Bundle 'vim-scripts/xoria256.vim'
 
 Bundle 'godlygeek/tabular'
+Bundle 'shougo/vimshell.vim'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'kien/ctrlp.vim'
+Bundle 'flazz/vim-colorschemes'
+"Bundle 'ervandew/supertab'
+"Bundle 'rking/ag.vim'
