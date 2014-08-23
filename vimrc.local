@@ -2,6 +2,7 @@ noremap <Leader>e :NERDTreeToggle<CR>
 noremap <Leader>t :TagbarToggle<CR>
 nmap cs :SyntasticCheck<CR>
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+set relativenumber
 ""窗口操作
 vnoremap <C-x>c "+y
 nnoremap <C-x>c "+p
@@ -21,21 +22,69 @@ nnoremap <C-h> <C-w><Left>
 nnoremap <C-l> <C-w><Right>
 nnoremap <C-k> <C-w><Up>
 nnoremap <C-j> <C-w><Down>
-"nnoremap < gT<CR>
-"nnoremap > gt<CR>
+"nnoremap < gT<CR>"nnoremap > gt<CR>
 nnoremap <Leader>i :tabfirst<CR>
 "nnoremap h :bp<CR>
 "nnoremap l :bn<CR>
 "inoremap <Leader>( _(<ESC><Right>Ef"a)
 nnoremap <Leader>` viw~<CR>
-nnoremap f za<CR>
-nnoremap F zi<CR>
+"nnoremap f za<CR>
+"nnoremap F zi<CR>
 
 nnoremap <Leader>b :Bufferlist<CR>
 
+" complete end for ruby
+"imap <S-CR> <CR><CR>end<Esc>-cc
+inoremap {<CR> {<CR><CR>}<Esc>-cc
+
 set showtabline=2  " 0, 1 or 2; when to use a tab pages line
 "set tabline=%!MyTabLine()  " custom tab pages line
+" map to make a simpler window resize
+nnoremap <silent> <S-Up> :resize +5<CR>
+nnoremap <silent> <S-Down> :resize -5<CR>
+nnoremap <silent> <S-Left> :vertical resize -5<CR>
+nnoremap <silent> <S-Right> :vertical resize +5<CR>
+nnoremap <silent> _ <C-w>_<CR>
+"nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+"nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 "
 
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
+
+"au FileType go setl sw=8 sts=8 ts=8 et
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+"autocmd FileType go compiler go
+"
+" ctrlP settings
+let g:ctrlp_map = '<c-f>'
+"nnoremap <C-f>b :CtrlPBuffer<CR>
+hi MatchParen cterm=none ctermbg=red ctermfg=none 
+let g:pyflakes_use_quickfix = 0

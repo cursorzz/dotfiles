@@ -1,12 +1,12 @@
 set nocompatible 
 
-syntax enable
 
 filetype on
 
 filetype off
-
+filetype plugin indent off
 set rtp +=~/.vim/bundle/vundle/ " add vundle to runtime path
+"set runtimepath+=$GOPATH/go/misc/vim
 call vundle#rc()
 if filereadable(expand("~/.vimrc.bundle"))
   source ~/.vimrc.bundle
@@ -14,6 +14,7 @@ if filereadable(expand("~/.vimrc.bundle"))
 endif
 
 filetype plugin indent on
+syntax enable
 
 "=================
 "vim related settings
@@ -55,14 +56,17 @@ set expandtab " expand tab to space
 set shiftwidth=4 " 正常模式下缩进2空格
 set softtabstop=4 " insert mode 回退两格
 set tabstop=4     " 实际的tab占8格, ex: 读其他文件
+au FileType ruby setl sw=2 sts=2 et
+au BufRead,BufNewFile *.haml setl sw=2 sts=2 et
 "set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 set autochdir  "自动切换目录
-"set foldlevel=1
+set foldlevel=10
 let g:kolor_italic=1                    " Enable italic. Default: 1
 let g:kolor_bold=1                      " Enable bold. Default: 1
 let g:kolor_underlined=1                " Enable underline for 'Underlined'. Default: 0
 let g:kolor_alternative_matchparen=1    " Gray 'MatchParen' color. Default: 0
 colorscheme kolor
+set background=dark
 "let g:loaded_matchparen=1 
 "highlight MatchParen ctermfg=none ctermbg=none cterm=bold
 "highlight MatchParen      guifg=White    guibg=none    gui=bold

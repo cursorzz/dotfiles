@@ -24,9 +24,12 @@ Bundle    'nathanaelkane/vim-indent-guides'
 Bundle    'tpope/vim-vividchalk'
 "Bundle   'zeis/vim-kolor'
 "Bundle    'Yggdroot/indentLine'
+Bundle 'jmcomets/vim-pony'
 "
 Bundle 'sandeepcr529/Buffet.vim'
-
+" 补全ruby的end
+"Bundle 'tpope/vim-endwise'
+Bundle 'vim-ruby/vim-ruby'
 " Edit xml and html easily
 "Bundle 'xmledit'
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
@@ -49,7 +52,7 @@ Bundle 'genutils'
 "	使用Tab补全Python
 Bundle 'Pydiction'
 "	自动弹出补全窗口
-"Bundle 'AutoComplPop'
+Bundle 'AutoComplPop'
 "Bundle 'taglist.vim'
 "比taglist更好的代码结构浏览
 Bundle 'majutsushi/tagbar'
@@ -79,3 +82,7 @@ filetype plugin indent on
 Bundle 'vim-scripts/xoria256.vim'
 
 Bundle 'godlygeek/tabular'
+Bundle 'shougo/vimshell.vim'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'kien/ctrlp.vim'
+"Bundle 'ervandew/supertab'
