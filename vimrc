@@ -79,7 +79,7 @@ set ignorecase " search ignore case
 set smartcase
 set incsearch
 set hlsearch
-set mouse=a " enable mouse in terminal
+"set mouse=a " enable mouse in terminal
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
