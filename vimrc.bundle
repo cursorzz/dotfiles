@@ -55,6 +55,7 @@ Bundle 'genutils'
 "	使用Tab补全Python
 Bundle 'Pydiction'
 Bundle 'davidhalter/jedi-vim'
+let g:jedi#documentation_command = ""
 Bundle 'AutoComplPop'
 "Bundle 'Valloric/YouCompleteMe'
 "
