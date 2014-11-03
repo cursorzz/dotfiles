@@ -22,7 +22,7 @@ set autoindent
 set autoread " 文件变动时自动加载
 set backspace=2 " ?
 "set backupcopy=yes "unix open it by default
-"set clipboard+=unnamed
+set clipboard+=unnamed
 
 set directory-=. " swap会被保存在tmp中
 set encoding=utf-8
@@ -72,7 +72,9 @@ set foldlevel=10
 
 " terminal related setting
 set t_Co=256 " this will effect statusline color
-colorscheme badwolf
+colorscheme Monokai
+hi SpellBad ctermbg=Blue
+"set bg=dark
 
 " search settings
 set ignorecase " search ignore case
@@ -81,9 +83,6 @@ set incsearch
 set hlsearch
 "set mouse=a " enable mouse in terminal
 
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
 
 
 
@@ -114,3 +113,6 @@ set statusline+=Line:%l/%L[%p%%]            " line X of Y [percent of file]
 set statusline+=\ Col:%c                    " current column
 set statusline+=\ Buf:%n                    " Buffer number
 
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif

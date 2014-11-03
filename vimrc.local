@@ -1,6 +1,10 @@
 noremap <Leader>e :NERDTreeToggle<CR>
 noremap <Leader>t :TagbarToggle<CR>
 nmap cs :SyntasticCheck<CR>
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+
+let g:syntastic_go_golint_quiet_messages = {"type":  "style"}
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 set relativenumber
 ""窗口操作
@@ -16,8 +20,10 @@ nnoremap <Leader>w :w<CR>
 inoremap <C-b> <C-n>
 vnoremap J 6j
 vnoremap K 6k
-nnoremap J 6j
-nnoremap K 6k
+nmap <silent> J <Plug>(ac-smooth-scroll-c-d)
+nmap <silent> K <Plug>(ac-smooth-scroll-c-u)
+"nnoremap J <C-d>
+"nnoremap K <C-u>
 nnoremap <C-h> <C-w><Left>
 nnoremap <C-l> <C-w><Right>
 nnoremap <C-k> <C-w><Up>
@@ -31,7 +37,7 @@ nnoremap <Leader>` viw~<CR>
 "nnoremap f za<CR>
 "nnoremap F zi<CR>
 
-nnoremap <Leader>b :Bufferlist<CR>
+"nnoremap <Leader>b :Bufferlist<CR>
 
 " complete end for ruby
 "imap <S-CR> <CR><CR>end<Esc>-cc
@@ -50,36 +56,40 @@ nnoremap <silent> _ <C-w>_<CR>
 "
 
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-
+"let g:tagbar_type_go = {
+    "\ 'ctagstype' : 'go',
+    "\ 'kinds'     : [
+        "\ 'p:package',
+        "\ 'i:imports:1',
+        "\ 'c:constants',
+        "\ 'v:variables',
+        "\ 't:types',
+        "\ 'n:interfaces',
+        "\ 'w:fields',
+        "\ 'e:embedded',
+        "\ 'm:methods',
+        "\ 'r:constructor',
+        "\ 'f:functions'
+    "\ ],
+    "\ 'sro' : '.',
+    "\ 'kind2scope' : {
+        "\ 't' : 'ctype',
+        "\ 'n' : 'ntype'
+    "\ },
+    "\ 'scope2kind' : {
+        "\ 'ctype' : 't',
+        "\ 'ntype' : 'n'
+    "\ },
+    "\ 'ctagsbin'  : 'gotags',
+    "\ 'ctagsargs' : '-sort -silent'
+"\ }
+au BufRead,BufNewFile *.go set filetype=go
+"let g:go_auto_type_info = 1
+"let g:go_fmt_fail_silently = 1
+au FileType go nmap <leader>g <Plug>(go-run)
+let g:syntastic_go_checkers = ['golint']
 "au FileType go setl sw=8 sts=8 ts=8 et
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+"autocmd FileType go autocmd BufWritePre <buffer> Fmt
 "autocmd FileType go compiler go
 "
 " ctrlP settings
@@ -104,10 +114,15 @@ noremap <leader>0 :tablast<cr>
 nnoremap <S-e> :lnext<CR>
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
+autocmd FileType python.django set omnifunc=pythoncomplete#Complete
+autocmd FileType htmldjango.html set omnifunc=htmlcomplete#CompleteTags
 if has("python")
     python import sys,os
     python sys.path.append('/home/zz/.pythonbrew/pythons/Python-2.7.2/lib/python2.7/site-packages/django/')
     "python os.environ['DJANGO_SETTINGS_MODULE'] = 'djangoProject.settings'
 endif
 " map Ex mode to nothing
-:map Q <Nop>
+map Q <Nop>
+"au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod a+x <afile> | endif | endif

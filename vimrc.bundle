@@ -2,11 +2,24 @@
 Bundle   'gmarik/vundle'
 Bundle   'vim-flake8'
 Bundle   'pyflakes.vim'
+Bundle 'fatih/vim-go'
 "Bundle   'christoomey/vim-tmux-navigator'
 "	使用vim-syntastic需要flake8
-"Bundle 'scrooloose/syntastic'
+Bundle 'Syntastic'
 "let g:syntastic_python_checkers = ['pylint']
 
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 "Bundle 'Lokaltog/vim-powerline'
 "let g:Powerline_stl_path_style = 'short'
 "Bundle 'groenewege/vim-less'
@@ -35,10 +48,6 @@ Bundle 'sandeepcr529/Buffet.vim'
 Bundle 'vim-ruby/vim-ruby'
 " Edit xml and html easily
 "Bundle 'xmledit'
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
-autocmd FileType python.django set omnifunc=pythoncomplete#Complete
-autocmd FileType htmldjango.html set omnifunc=htmlcomplete#CompleteTags
 "	pyton pep8代码风格检查
 "Bundle 'pep8.vim'
 "	自动语法检查，需要pyflakes
@@ -53,9 +62,11 @@ Bundle 'VimExplorer'
 "Bundle 'lookupfile'
 Bundle 'genutils'
 "	使用Tab补全Python
-Bundle 'Pydiction'
+"Bundle 'Pydiction'
 Bundle 'davidhalter/jedi-vim'
 let g:jedi#documentation_command = ""
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
 Bundle 'AutoComplPop'
 "Bundle 'Valloric/YouCompleteMe'
 "
@@ -67,14 +78,15 @@ Bundle 'tpope/vim-surround'
 Bundle 'xolox/vim-notes'
 
 Bundle 'xolox/vim-misc'
-:let g:notes_directories = ['/home/ld/Documents/Notes']
+:let g:notes_directories = ['~/Documents/Notes']
 "Bundle 'winmanager'
 "	在vim中运行shell
 "Bundle 'Conque-Shell'
 "	快速插入内容
-Bundle 'snipMate'
+"Bundle 'snipMate'
 "Bundle 'mattn/zencoding-vim'
   "let g:user_zen_leader_key = '<c-y>'
+" better than zen_code
 Bundle 'mattn/emmet-vim'
 Bundle 'morhetz/gruvbox'
 "Bundle 'chriskempson/tomorrow-theme'
@@ -90,9 +102,17 @@ filetype plugin indent on
 Bundle 'vim-scripts/xoria256.vim'
 
 Bundle 'godlygeek/tabular'
-Bundle 'shougo/vimshell.vim'
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'tpope/vim-markdown'
+"Bundle 'plasticboy/vim-markdown'
+"Bundle 'shougo/vimshell.vim'
+"Bundle 'jnwhiteh/vim-golang'
+Bundle 'yonchu/accelerated-smooth-scroll'
 Bundle 'kien/ctrlp.vim'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'gcmt/wildfire.vim'
 "Bundle 'ervandew/supertab'
 "Bundle 'rking/ag.vim'
+Bundle 'ack.vim'
+" tab上显示tab的index
+Bundle "mkitt/tabline.vim"
+" Track the engine.
