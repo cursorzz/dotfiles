@@ -37,14 +37,14 @@ Bundle 'python.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle    'pangloss/vim-javascript'
 Bundle    'nathanaelkane/vim-indent-guides'
-Bundle    'tpope/vim-vividchalk'
+"Bundle    'tpope/vim-vividchalk'
 "Bundle   'zeis/vim-kolor'
 "Bundle    'Yggdroot/indentLine'
 Bundle 'jmcomets/vim-pony'
 "
-Bundle 'sandeepcr529/Buffet.vim'
+"Bundle 'sandeepcr529/Buffet.vim'
 " 补全ruby的end
-"Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-endwise'
 Bundle 'vim-ruby/vim-ruby'
 " Edit xml and html easily
 "Bundle 'xmledit'
@@ -88,7 +88,7 @@ Bundle 'xolox/vim-misc'
   "let g:user_zen_leader_key = '<c-y>'
 " better than zen_code
 Bundle 'mattn/emmet-vim'
-Bundle 'morhetz/gruvbox'
+"Bundle 'morhetz/gruvbox'
 "Bundle 'chriskempson/tomorrow-theme'
 
 
@@ -101,12 +101,12 @@ filetype plugin indent on
 " some colorscheme bundles
 Bundle 'vim-scripts/xoria256.vim'
 
-Bundle 'godlygeek/tabular'
+"Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-markdown'
 "Bundle 'plasticboy/vim-markdown'
 "Bundle 'shougo/vimshell.vim'
 "Bundle 'jnwhiteh/vim-golang'
-Bundle 'yonchu/accelerated-smooth-scroll'
+"Bundle 'yonchu/accelerated-smooth-scroll'
 Bundle 'kien/ctrlp.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'gcmt/wildfire.vim'
@@ -115,4 +115,11 @@ Bundle 'gcmt/wildfire.vim'
 Bundle 'ack.vim'
 " tab上显示tab的index
 Bundle "mkitt/tabline.vim"
+"Bundle "tpope/vim-rails"
 " Track the engine.
+" better movement
+"Bundle 'Lokaltog/vim-easymotion'
+Bundle 'JazzCore/ctrlp-cmatcher'
+"Plugin 'tacahiroy/ctrlp-funky'
+"let g:ctrlp_extensions = ['funky']
+Plugin 'tpope/vim-eunuch'

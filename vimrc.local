@@ -11,7 +11,7 @@ set relativenumber
 vnoremap <C-x>c "+y
 nnoremap <C-x>c "+p
 nnoremap <Leader>r :!./% <CR>
-nnoremap t :tabe 
+nnoremap <Leader>t :tabe 
 nnoremap <Leader>/ :vsplit 
 nnoremap <Leader>n :lnext<CR>
 nnoremap <Leader>p :lprevious<CR>
@@ -126,3 +126,4 @@ endif
 " map Ex mode to nothing
 map Q <Nop>
 "au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod a+x <afile> | endif | endif
+let g:jedi#popup_select_first=0
