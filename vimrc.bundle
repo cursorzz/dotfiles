@@ -1,11 +1,17 @@
 "	需要先安装flake8
 Bundle   'gmarik/vundle'
 Bundle   'vim-flake8'
+Plugin 'elixir-lang/vim-elixir'
 Bundle   'pyflakes.vim'
 Bundle 'fatih/vim-go'
+"kundle 'tpope/vim-markdown'
 "Bundle   'christoomey/vim-tmux-navigator'
 "	使用vim-syntastic需要flake8
 Bundle 'Syntastic'
+Plugin 'mustache/vim-mustache-handlebars'
+let g:mustache_abbreviations = 1
+
+Plugin 'kchmck/vim-coffee-script'
 "let g:syntastic_python_checkers = ['pylint']
 
 Plugin 'SirVer/ultisnips'
@@ -63,12 +69,12 @@ Bundle 'VimExplorer'
 Bundle 'genutils'
 "	使用Tab补全Python
 "Bundle 'Pydiction'
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
 let g:jedi#documentation_command = ""
 let g:jedi#popup_select_first = 0
 let g:jedi#popup_on_dot = 0
-Bundle 'AutoComplPop'
-"Bundle 'Valloric/YouCompleteMe'
+"Bundle 'AutoComplPop'
+"Plugin 'Valloric/YouCompleteMe'
 "
 "	自动弹出补全窗口
 "Bundle 'taglist.vim'
@@ -79,6 +85,7 @@ Bundle 'xolox/vim-notes'
 
 Bundle 'xolox/vim-misc'
 :let g:notes_directories = ['~/Documents/Notes']
+:let g:notes_suffix = '.md'
 "Bundle 'winmanager'
 "	在vim中运行shell
 "Bundle 'Conque-Shell'
@@ -101,13 +108,13 @@ filetype plugin indent on
 " some colorscheme bundles
 Bundle 'vim-scripts/xoria256.vim'
 
-"Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-markdown'
-"Bundle 'plasticboy/vim-markdown'
+Bundle 'godlygeek/tabular'
+Bundle 'plasticboy/vim-markdown'
 "Bundle 'shougo/vimshell.vim'
 "Bundle 'jnwhiteh/vim-golang'
 "Bundle 'yonchu/accelerated-smooth-scroll'
 Bundle 'kien/ctrlp.vim'
+"Plugin 'Shougo/unite.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'gcmt/wildfire.vim'
 "Bundle 'ervandew/supertab'
@@ -118,8 +125,26 @@ Bundle "mkitt/tabline.vim"
 "Bundle "tpope/vim-rails"
 " Track the engine.
 " better movement
-"Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'JazzCore/ctrlp-cmatcher'
 "Plugin 'tacahiroy/ctrlp-funky'
 "let g:ctrlp_extensions = ['funky']
 Plugin 'tpope/vim-eunuch'
+"Plugin 'nelstrom/vim-textobj-rubyblock'
+"
+Plugin 'ap/vim-css-color'
+Plugin 'shime/vim-livedown'
+Plugin 'cursorzz/vim-ackmore'
+Plugin 'farseer90718/vim-taskwarrior'
+Plugin 'ervandew/supertab'
+
+" This plug-in provides automatic closing of quotes, parenthesis, brackets, etc.,
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-projectionist'
+Plugin 'christoomey/vim-tmux-navigator'
+
+
+"Plugin 'Yggdroot/indentLine'
+
+"Plugin 'ervandew/supertab'
+"" Vundle

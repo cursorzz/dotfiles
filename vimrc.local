@@ -10,8 +10,8 @@ set relativenumber
 ""窗口操作
 vnoremap <C-x>c "+y
 nnoremap <C-x>c "+p
-nnoremap <Leader>r :!./% <CR>
-nnoremap <Leader>t :tabe 
+"nnoremap <Leader>r :!./% <CR>
+"nnoremap <Leader>t :tabe 
 nnoremap <Leader>/ :vsplit 
 nnoremap <Leader>n :lnext<CR>
 nnoremap <Leader>p :lprevious<CR>
@@ -20,6 +20,9 @@ nnoremap <Leader>w :w<CR>
 inoremap <C-b> <C-n>
 vnoremap J 6j
 vnoremap K 6k
+nnoremap J 6j
+nnoremap K 6k
+
 nmap <silent> J <Plug>(ac-smooth-scroll-c-d)
 nmap <silent> K <Plug>(ac-smooth-scroll-c-u)
 "nnoremap J <C-d>
@@ -41,7 +44,7 @@ nnoremap <Leader>` viw~<CR>
 
 " complete end for ruby
 "imap <S-CR> <CR><CR>end<Esc>-cc
-inoremap {<CR> {<CR><CR>}<Esc>-cc
+"inoremap {<CR> {<CR><CR>}<Esc>-cc
 
 set showtabline=2  " 0, 1 or 2; when to use a tab pages line
 "set tabline=%!MyTabLine()  " custom tab pages line
@@ -115,9 +118,12 @@ nnoremap <S-e> :lnext<CR>
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
+autocmd FileType html set omnifunc= noci
 autocmd FileType python.django set omnifunc=pythoncomplete#Complete
 autocmd FileType htmldjango.html set omnifunc=htmlcomplete#CompleteTags
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.es6 set filetype=javascript
 if has("python")
     python import sys,os
     python sys.path.append('/home/zz/.pythonbrew/pythons/Python-2.7.2/lib/python2.7/site-packages/django/')
@@ -127,3 +133,5 @@ endif
 map Q <Nop>
 "au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod a+x <afile> | endif | endif
 let g:jedi#popup_select_first=0
+nnoremap J 10j
+nnoremap K 10k
