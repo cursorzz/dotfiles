@@ -16,6 +16,9 @@ endif
 filetype plugin indent on
 syntax enable
 
+" set timeout, so exit insert without lag
+set timeoutlen=1000 ttimeoutlen=0
+
 "=================
 "vim related settings
 set autoindent
@@ -57,6 +60,7 @@ set shiftwidth=4 " 正常模式下缩进2空格
 set softtabstop=4 " insert mode 回退两格
 set tabstop=4     " 实际的tab占8格, ex: 读其他文件
 au FileType ruby setl sw=2 sts=2 et
+au FileType coffee setl sw=2 sts=2 et
 au BufRead,BufNewFile *.haml setl sw=2 sts=2 et
 "set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 set autochdir  "自动切换目录
@@ -89,20 +93,22 @@ set hlsearch
 " #######default the statusline to green when entering Vim
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
-    hi statusline guibg=Cray ctermfg=11 guifg=Black ctermbg=0
+    hi statusline guibg=Gray ctermfg=102 guifg=Black ctermbg=121
   elseif a:mode == 'v'
-    hi statusline guibg=Purple ctermfg=11 guifg=Black ctermbg=0
+    hi statusline guibg=Purple ctermfg=0 guifg=Black ctermbg=11
   else
-    hi statusline guibg=DarkRed ctermfg=15 guifg=Black ctermbg=0
+    hi statusline guibg=DarkRed ctermfg=0 guifg=Black ctermbg=11
   endif
 endfunction
 
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
-hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
+"au InsertChange * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi statusline guibg=DarkGrey ctermfg=231 guifg=White ctermbg=197
+hi statusline guibg=DarkGrey ctermfg=231 guifg=White ctermbg=59
 " Formats the statusline
 set statusline+=[%{&ff}] "file format
 set statusline+=%y      "filetype
+set statusline+=%{fugitive#statusline()}      "fugitive
 set statusline+=\ %F                           " file name
 "set statusline+=\ [%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%h      "help file flag
@@ -116,3 +122,8 @@ set statusline+=\ Buf:%n                    " Buffer number
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+set guifont=Monaco:h14
+
+set wildignore+=*.log
+
+set lisp
